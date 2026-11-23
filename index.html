@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guía JavaScript | Futurista</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orbs" aria-hidden="true"><span></span><span></span></div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <header>
+      <div class="header-title" onclick="goHome()">
+        <span class="logo-icon">⚡</span>
+        <span>JavaScript</span>
+      </div>
+
+      <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">
+        <span class="icon" id="themeIcon">🌙</span>
+        <span class="text" id="themeText">Modo Claro</span>
+      </button>
+    </header>
+
+    <div class="main-container">
+      <!-- VISTA HOME -->
+      <div class="home-view" id="homeView">
+        <div class="welcome-section">
+          <span class="eyebrow">// sistema.guia.v2</span>
+          <h2>Guía Interactiva de JavaScript</h2>
+          <p>
+            Selecciona un tema para explorar sus conceptos y ejemplos de código.
+            Cada tarjeta contiene la explicación y el código correspondiente.
+          </p>
+        </div>
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInputHome"
+            class="search-input"
+            placeholder="Buscar tarjeta... Ej: array, función, DOM"
+          />
+          <button class="search-btn" onclick="buscarTarjetas('home')">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            Buscar
+          </button>
+          <button class="search-clear" onclick="limpiarBusqueda()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+            Limpiar
+          </button>
+        </div>
+        <p id="searchInfoHome" class="search-info hidden"></p>
+        <div id="searchResultsGrid" class="cards-grid hidden"></div>
+        <div class="buttons-grid" id="buttonsGrid"></div>
+      </div>
+
+      <!-- VISTA DETALLE -->
+      <div class="detail-view" id="detailView">
+        <button class="back-button" onclick="goHome()">
+          <span>←</span> Volver al inicio
+        </button>
+        <div class="detail-header" id="detailHeader">
+          <h2 id="detailTitle"></h2>
+          <p id="detailDescription"></p>
+        </div>
+        <div class="search-box search-box-detail">
+          <input
+            type="text"
+            id="searchInputDetail"
+            class="search-input"
+            placeholder="Buscar en este tema... Ej: map, click"
+          />
+          <button class="search-btn" onclick="buscarTarjetas('detail')">
+            🔍 Buscar
+          </button>
+          <button class="search-clear" onclick="limpiarBusqueda()">
+            ✕ Limpiar
+          </button>
+        </div>
+        <p
+          id="searchInfoDetail"
+          class="search-info search-info-detail hidden"
+        ></p>
+        <div class="cards-grid" id="cardsGrid"></div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        ⚡ Guía JavaScript | Víctor Vargas Cadaveira | Documento en expansión ⚡
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
